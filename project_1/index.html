@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Convert Weight Library</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style type="text/css">
+        body {
+            margin: 0 auto;
+            max-width: 40em;
+            width: 88%;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Convert Weight Library</h1>
+
+    <p>All of the magic here happens in the console.</p>
+
+
+    <script>
+        let convert = (function () {
+
+            const conversionValue = 1000;
+
+            /**
+             * Convert grams to kilograms
+             * @param {Number} amount The number of grams to convert
+            */
+            function gramsToKg(amount) {
+                return amount / conversionValue;
+            }
+
+            /**
+             * Convert grams to milligrams
+             * @param {Number} amount The number of grams to convert
+            */
+            function gramsToMg(amount) {
+                return amount * conversionValue;
+            }
+
+            /**
+             * Convert kilograms grams
+             * @param {Number} amount The number of kilograms to convert
+            */
+            function kgToGrams(amount) {
+                return amount * conversionValue;
+            }
+
+            /**
+             * Convert kilograms to millograms
+             * @param {Number} amount The number of kilograms to convert
+            */
+            function kgToMg(amount) {
+                return amount * conversionValue * conversionValue;
+            }
+
+            /**
+             * Convert milligrams to grams
+             * @param {Number} amount The number of milligrams to convert
+            */
+            function mgToGrams(amount) {
+                return amount / conversionValue;
+            }
+
+            /**
+             * Convert milligrams to kilograms
+             * @param {Number} amount The number of milligrams to convert
+            */
+            function mgToKg(amount) {
+                return amount / conversionValue / conversionValue;
+            }
+
+            return { gramsToKg, gramsToMg, kgToGrams, kgToMg, mgToGrams, mgToKg }
+        })();
+
+        // returns 42000
+        let mgs = convert.gramsToMg(42);
+
+        // returns 0.042
+        let kgs = convert.gramsToKg(42);
+
+        console.log(mgs);
+        console.log(kgs);
+
+    </script>
+</body>
+
+</html>
