@@ -1,9 +1,8 @@
-    /*
-    * The Constructor object
-    * @params {string/array} date The initial date
-    */
+/*
+* The Constructor object
+* @params {array} args The initial date
+*/
 function Time(...args) {
-    console.log(args.length);
     this.date = new Date(...args); 
 }
 
