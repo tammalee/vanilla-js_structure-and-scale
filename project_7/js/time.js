@@ -8,7 +8,6 @@ function Time(...args) {
 
 /**
  * Returns the day of the week as a string
- * @param {Date} date The date to get the day of the week from
 */
 Time.prototype.getDay = function() {
     const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
@@ -17,7 +16,6 @@ Time.prototype.getDay = function() {
 
 /**
  * Returns the month as a string
- * @param {Date} date The date to get the month from
  */
 Time.prototype.getMonth = function() {
     const monthsOfYear = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
@@ -26,7 +24,6 @@ Time.prototype.getMonth = function() {
 
 /**
  * Adds an amount as seconds to a passed date
- * @param {Date} date The date to add seconds to
  * @param {int} amount The amount of seconds to add
  */
 Time.prototype.addSeconds = function(amount) {
@@ -36,7 +33,6 @@ Time.prototype.addSeconds = function(amount) {
 
 /**
  * Adds an amount as minutes to a passed date
- * @param {Date} date The date to add minutes to
  * @param {int} amount The amount of minutes to add
  */
 Time.prototype.addMinutes = function(amount) {
@@ -46,7 +42,6 @@ Time.prototype.addMinutes = function(amount) {
 
 /**
  * Adds an amount as hours to a passed date
- * @param {Date} date The date to add hours to
  * @param {int} amount The amount of hours to add
  */
 Time.prototype.addHours = function(amount) {
@@ -56,7 +51,6 @@ Time.prototype.addHours = function(amount) {
 
 /**
  * Adds an amount as days to a passed date
- * @param {Date} date The date to add days to
  * @param {int} amount The amount of days to add
  */
 Time.prototype.addDays = function(amount) {
@@ -66,7 +60,6 @@ Time.prototype.addDays = function(amount) {
 
 /**
  * Adds an amount as months to a passed date
- * @param {Date} date The date to add months to
  * @param {int} amount The amount of months to add
  */
 Time.prototype.addMonths = function(amount) {
@@ -76,7 +69,6 @@ Time.prototype.addMonths = function(amount) {
 
 /**
  * Adds an amount as years to a passed date
- * @param {Date} date The date to add years to
  * @param {int} amount The amount of years to add
  */
 Time.prototype.addYears = function(amount) {
