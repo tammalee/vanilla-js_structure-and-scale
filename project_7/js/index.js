@@ -4,7 +4,7 @@ import Time from './time.js';
 let halloween = new Time('October 31, 2021');
 
 // This should also work
-let halloween2 = new Time(2021, 9, 31);
+let halloween2 = new Time([2021, 9, 31]);
 console.log('halloween2: ', halloween2.date);
 
 // Get the date object

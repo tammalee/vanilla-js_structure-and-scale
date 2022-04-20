@@ -2,8 +2,11 @@
 * The Constructor object
 * @params {array} args The initial date
 */
-function Time(...args) {
-    this.date = new Date(...args); 
+function Time(date = []) {
+    if (!Array.isArray(date)) {
+        date = [date];
+    }
+    this.date = new Date(...date); 
 }
 
 /**
