@@ -91,7 +91,8 @@ function loadButtons () {
 	controls.innerHTML =
 		`<p>
 			<button data-fave="${id}" aria-pressed="${isFave(id) ? true : false}">
-				♥ Favorite
+				<span aria-hidden="true
+				">♥</span> Favorite
 			</button>
 		</p>`;
 
@@ -107,6 +108,7 @@ function loadIcons () {
 
 	// Create an icon
 	let icon = document.createElement('span');
+	icon.setAttribute('aria-label', "Favourited");
 	icon.textContent = ' ♥';
 
 	// Loop through each place and add an icon if it's a favorite
