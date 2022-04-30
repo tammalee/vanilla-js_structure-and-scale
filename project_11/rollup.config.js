@@ -11,7 +11,8 @@ export default formats.map((format) => {
 			file: `time${format === 'iife'?'':`.${format}`}.js`,
 			format: format,
 			banner: banner,
-			name: 'Time'
+			name: 'Time',
+			exports: 'auto'
 		}
 	};
 });
