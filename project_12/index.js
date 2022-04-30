@@ -63,11 +63,12 @@ function clickHandler (event) {
 	let id = btn.getAttribute('data-fave');
 
 	// Update button UI and save
-	if (btn.classList.contains('is-active')) {
-		btn.classList.remove('is-active');
+
+	if (btn.getAttribute('aria-pressed') === 'true') {
+		btn.setAttribute('aria-pressed', false);
 		removeFave(id);
 	} else {
-		btn.classList.add('is-active');
+		btn.setAttribute('aria-pressed', true);
 		addFave(id);
 	}
 
@@ -89,7 +90,7 @@ function loadButtons () {
 	// Inject buttons
 	controls.innerHTML =
 		`<p>
-			<button data-fave="${id}" ${isFave(id) ? 'class="is-active"' : ''}">
+			<button data-fave="${id}" aria-pressed="${isFave(id) ? true : false}">
 				♥ Favorite
 			</button>
 		</p>`;
