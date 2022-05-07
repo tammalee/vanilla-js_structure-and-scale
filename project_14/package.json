@@ -1,0 +1,12 @@
+{
+  "name": "places",
+  "version": "1.0.0",
+  "description": "Fave and unfave your favourite places",
+  "scripts": {
+		"js": "rollup --config"
+	},
+	"devDependencies": {
+		"rollup": "^2.70.2"
+	},
+  "license": "MIT"
+}
