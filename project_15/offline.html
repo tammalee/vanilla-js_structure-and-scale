@@ -9,5 +9,11 @@
 <body>
     <h1>Oopsie doodle!</h1>
     <p>Sorry, you're offline...</p>
+
+    <script>
+        if (navigator && navigator.serviceWorker) {
+            navigator.serviceWorker.register('sw.js');
+        }
+    </script>
 </body>
 </html>
