@@ -31,7 +31,11 @@
     </p>
 
     <div data-controls="aunt-carries"></div>
-
+    <script>
+        if (navigator && navigator.serviceWorker) {
+            navigator.serviceWorker.register('sw.js');
+        }
+    </script>
     <script src="place.js"></script>
 </body>
 
