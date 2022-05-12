@@ -7,12 +7,35 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Oopsie doodle!</h1>
-    <p>Sorry, you're offline...</p>
+    <h1>You're Offline</h1>
+    <p>It looks like you’re not online right now. Don’t worry! You can still access some of the pages you looked at before
+        going offline.</p>
+    
+    <!-- Offline content will get added here... -->
+    <div id="offline-content"></div>
 
     <script>
         if (navigator && navigator.serviceWorker) {
             navigator.serviceWorker.register('sw.js');
+            caches.open('pages').then(function (cache) {
+                cache.keys().then(function (keys) {
+                    let offline = document.querySelector('#offline-content');
+                    offline.innerHTML =
+                        `<ul>
+					        ${keys.map(function (key) {
+
+                            // If the item isn't an HTML file, skip to the next one
+                            // This is only needed if you're keeping everything in one cache
+                            if (!key.headers.get('Accept').includes('text/html') || key.url.includes('/offline')) return '';
+
+                            // Otherwise, create a list item with a link to the page
+                            return `<li><a href="${key.url}">${key.url}</a></li>`;
+
+                        }).join('')}
+				</ul>`;
+                
+                });
+            });
         }
     </script>
 </body>
