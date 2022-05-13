@@ -39,6 +39,13 @@
                 type: 'module',
             });
         }
+
+        // Cleanup old cache on page load
+        if (navigator.serviceWorker.controller) {
+            window.addEventListener('load', function () {
+                navigator.serviceWorker.controller.postMessage('cleanUp');
+            });
+        }
     </script>
     <script src="place.js"></script>
 </body>

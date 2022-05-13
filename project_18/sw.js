@@ -12,6 +12,27 @@ const coreAssets = [
     'imgs/placeholder.jpeg',
 ];
 
+const limits = {
+    pages: 3,
+    imgs: 2
+};
+
+/**
+ * Removed cached items over the number set in limits
+ * @param {String} key The cache key
+ * @param {Integer} max The max number of items allowed
+ */
+function trimCache (key, max) {
+	caches.open(key).then(function (cache) {
+		cache.keys().then(function (keys) {
+			if (keys.length <= max) return;
+			cache.delete(keys[0]).then(function () {
+				trimCache(key, max);
+			});
+		});
+	});
+}
+
 self.addEventListener('install', function (event) {
     
     self.skipWaiting();
@@ -102,4 +123,19 @@ self.addEventListener('fetch', function (event) {
             })
         );
     }
+});
+
+// Trim caches over a certain size
+self.addEventListener('message', function (event) {
+
+	// Make sure the event was from a trusted site
+	// if (event.origin !== 'https://your-awesome-website.com') return;
+
+	// Only run on cleanUp messages
+	if (event.data !== 'cleanUp') return;
+
+	// Trim the cache
+	trimCache(pageId, limits.pages);
+	trimCache(imgId, limits.imgs);
+
 });
